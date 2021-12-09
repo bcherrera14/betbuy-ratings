@@ -24,7 +24,7 @@ const ProductCard = ({ product }) => {
 	return (
 		<div className="card d-flex flex-column justify-content-center align-items-center m-4" key={product.sku}>
 			<img className="mt-3" src={product.image} />
-			<h5 className="m-3">{product.modelNumber.split('-')[0]}</h5>
+			<h4 className="m-3">{product.modelNumber.split('-')[0]}</h4>
 			<div className="d-flex flex-column align-items-center">
 				<span>{stars}</span>
 				<p>{product.customerReviewAverage}</p>
