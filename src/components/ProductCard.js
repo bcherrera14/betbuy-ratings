@@ -33,7 +33,7 @@ const ProductCard = ({ product }) => {
 				<p>
 					{product.customerTopRated ? (
 						<span>
-							<i class="fas fa-award" /> Top Rated
+							<i class="fas fa-award" /> <strong>Top Rated</strong>
 						</span>
 					) : (
 						''
