@@ -20,7 +20,7 @@ class App extends React.Component {
 					.REACT_APP_BETBUY_KEY}`
 			)
 			.then((response) => {
-				// console.log(response.data.products);
+				console.log(response.data.products);
 				this.setState({ products: response.data.products });
 			});
 	};
