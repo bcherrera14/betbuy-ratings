@@ -19,14 +19,14 @@ const ProductsGrid = ({ products }) => {
 	}
 
 	const routerList = products.filter((product) => isRouter(product.name));
-	console.log('Unsorted List: ', routerList);
+	// console.log('Unsorted List: ', routerList);
 
 	const sortedList = routerList.slice().sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
-	console.log('Sorted List: ', sortedList.reverse());
+	// console.log('Sorted List: ', sortedList.reverse());
 
-	const renderedGrid = sortedList.map((product) => {
+	const renderedGrid = sortedList.reverse().map((product) => {
 		// console.log(product.startDate);
-		return <ProductCard product={product} />;
+		return <ProductCard product={product} key={product.sku} />;
 	});
 
 	return <div className="container mt-4 d-flex flex-wrap">{renderedGrid}</div>;

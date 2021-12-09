@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ProductsGrid from './ProductsGrid';
+import '@fortawesome/fontawesome-free/css/all.css';
 
 import Navbar from './Navbar';
 
@@ -10,7 +11,6 @@ class App extends React.Component {
 
 	componentDidMount() {
 		this.getNetgearRouters();
-		console.log();
 	}
 
 	getNetgearRouters = () => {
@@ -20,7 +20,7 @@ class App extends React.Component {
 					.REACT_APP_BETBUY_KEY}`
 			)
 			.then((response) => {
-				console.log(response.data.products);
+				// console.log(response.data.products);
 				this.setState({ products: response.data.products });
 			});
 	};

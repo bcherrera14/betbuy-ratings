@@ -5,3 +5,8 @@ img {
 .card {
 	width: 300px;
 }
+
+.fa-star,
+.fa-star-half-alt {
+	color: #ffe000;
+}
