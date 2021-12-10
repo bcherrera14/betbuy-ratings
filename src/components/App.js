@@ -3,6 +3,7 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ProductsGrid from './ProductsGrid';
 import '@fortawesome/fontawesome-free/css/all.css';
+import Jumbotron from './Jumbotron';
 
 import Navbar from './Navbar';
 
@@ -29,6 +30,7 @@ class App extends React.Component {
 		return (
 			<div>
 				<Navbar />
+				<Jumbotron title="Best Buy Product Reviews" />
 				<ProductsGrid products={this.state.products} />
 			</div>
 		);

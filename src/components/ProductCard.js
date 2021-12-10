@@ -23,21 +23,26 @@ const ProductCard = ({ product }) => {
 
 	return (
 		<div className="card d-flex flex-column justify-content-center align-items-center m-4" key={product.sku}>
+			<p className="mt-3">
+				{product.customerTopRated ? (
+					<span>
+						<i className="fas fa-award" /> <strong>Top Rated</strong>
+					</span>
+				) : (
+					''
+				)}
+			</p>
 			<img className="mt-3" src={product.image} />
-			<h4 className="m-3">{product.modelNumber.split('-')[0]}</h4>
-			<div className="d-flex flex-column align-items-center">
+			<h5 className="m-3">{product.modelNumber.split('-')[0]}</h5>
+			<div className="d-flex flex-column align-items-center justify-content-center">
 				<span>{stars}</span>
 				<p>{product.customerReviewAverage}</p>
 
-				<p>{product.customerReviewCount} Customer Reviews</p>
 				<p>
-					{product.customerTopRated ? (
-						<span>
-							<i class="fas fa-award" /> <strong>Top Rated</strong>
-						</span>
-					) : (
-						''
-					)}
+					{product.customerReviewCount} Customer Reviews
+					<a className="ms-2" href={product.url + '#tabbed-customerreviews'}>
+						<i class="fas fa-external-link-alt fa-sm" />
+					</a>
 				</p>
 			</div>
 		</div>

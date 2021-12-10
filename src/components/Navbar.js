@@ -5,7 +5,7 @@ const Navbar = () => {
 		<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div className="container-fluid">
 				<a className="navbar-brand" href="#">
-					NETGEAR
+					<strong>NETGEAR</strong>
 				</a>
 				<button
 					className="navbar-toggler"
@@ -21,7 +21,10 @@ const Navbar = () => {
 				<div className="collapse navbar-collapse" id="navbarNavAltMarkup">
 					<div className="navbar-nav">
 						<a className="nav-link active" aria-current="page" href="#">
-							Home
+							Best Buy
+						</a>
+						<a className="nav-link" aria-current="page" href="#">
+							Amazon
 						</a>
 						<a className="nav-link" href="#">
 							Search
