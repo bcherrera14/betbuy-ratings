@@ -9,7 +9,7 @@ import { Routes, Route } from 'react-router-dom';
 import Navbar from './Navbar';
 
 class App extends React.Component {
-	state = { products: [], loading: false };
+	state = { products: [], searchResults: [], loading: false };
 
 	componentDidMount() {
 		this.getNetgearRouters();
@@ -23,8 +23,21 @@ class App extends React.Component {
 					.REACT_APP_BETBUY_KEY}`
 			)
 			.then((response) => {
-				console.log(response.data.products);
+				//console.log(response.data.products);
 				this.setState({ products: response.data.products });
+			});
+	};
+
+	onFormSubmit = (term) => {
+		console.log(term);
+		axios
+			.get(
+				`https://api.bestbuy.com/v1/products(search=${term})?format=json&pageSize=10&apiKey=${process.env
+					.REACT_APP_BETBUY_KEY}`
+			)
+			.then((response) => {
+				console.log(response.data.products);
+				//this.setState({ searchResults: response.data.products });
 			});
 	};
 
@@ -33,15 +46,8 @@ class App extends React.Component {
 			<div>
 				<Routes>
 					<Route path="/" element={<Navbar />}>
-						{/* <Navbar setJumbotronTitle={this.setJumbotronTitle} /> */}
 						<Route index element={<ProductsGrid products={this.state.products} />} />
-						<Route path="/search" element={<ProductSearch />} />
-						{/* <div className="d-flex flex-column justify-content-center align-items-center">
-							<div className={spinnerClass} role="status">
-								<span className="sr-only">Loading...</span>
-							</div>
-							<p className="mt-2">Loading...</p>
-						</div> */}
+						<Route path="/search" element={<ProductSearch onFormSubmit={this.onFormSubmit} />} />
 					</Route>
 				</Routes>
 			</div>
