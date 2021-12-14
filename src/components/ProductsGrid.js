@@ -1,6 +1,7 @@
 import React from 'react';
 import ProductCard from './ProductCard';
 import Jumbotron from './Jumbotron';
+import './ProductsGrid.css';
 
 const ProductsGrid = ({ products }) => {
 	function isRouter(item) {
@@ -29,10 +30,17 @@ const ProductsGrid = ({ products }) => {
 		// console.log(product.startDate);
 		return <ProductCard product={product} key={product.sku} />;
 	});
+	const spinnerClass = products.length == 0 ? 'd-flex flex-column justify-content-center align-items-center' : 'hide';
 
 	return (
 		<div>
 			<Jumbotron />
+			<div className={spinnerClass}>
+				<div className="spinner-border text-secondary" role="status">
+					<span className="sr-only">Loading...</span>
+				</div>
+				<p className="mt-2">Loading...</p>
+			</div>
 			<div className="container mt-4 d-flex flex-wrap">{renderedGrid}</div>;
 		</div>
 	);

@@ -2,8 +2,9 @@ import React from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ProductsGrid from './ProductsGrid';
+import ProductSearch from './ProductSearch';
 import '@fortawesome/fontawesome-free/css/all.css';
-import { Form, Col, Row, Jumbotron, Container, Button, Spinner } from 'react-bootstrap';
+import { Routes, Route } from 'react-router-dom';
 
 import Navbar from './Navbar';
 
@@ -28,17 +29,21 @@ class App extends React.Component {
 	};
 
 	render() {
-		const spinnerClass = this.state.loading ? 'spinner-border text-secondary' : 'hide';
 		return (
 			<div>
-				<Navbar setJumbotronTitle={this.setJumbotronTitle} />
-				<ProductsGrid products={this.state.products} />
-				<div className="d-flex flex-column justify-content-center align-items-center">
-					<div className={spinnerClass} role="status">
-						<span className="sr-only">Loading...</span>
-					</div>
-					<p className="mt-2">Loading...</p>
-				</div>
+				<Routes>
+					<Route path="/" element={<Navbar />}>
+						{/* <Navbar setJumbotronTitle={this.setJumbotronTitle} /> */}
+						<Route index element={<ProductsGrid products={this.state.products} />} />
+						<Route path="/search" element={<ProductSearch />} />
+						{/* <div className="d-flex flex-column justify-content-center align-items-center">
+							<div className={spinnerClass} role="status">
+								<span className="sr-only">Loading...</span>
+							</div>
+							<p className="mt-2">Loading...</p>
+						</div> */}
+					</Route>
+				</Routes>
 			</div>
 		);
 	}
