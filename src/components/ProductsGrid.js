@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductCard from './ProductCard';
+import Jumbotron from './Jumbotron';
 
 const ProductsGrid = ({ products }) => {
 	function isRouter(item) {
@@ -29,7 +30,12 @@ const ProductsGrid = ({ products }) => {
 		return <ProductCard product={product} key={product.sku} />;
 	});
 
-	return <div className="container mt-4 d-flex flex-wrap">{renderedGrid}</div>;
+	return (
+		<div>
+			<Jumbotron />
+			<div className="container mt-4 d-flex flex-wrap">{renderedGrid}</div>;
+		</div>
+	);
 };
 
 export default ProductsGrid;

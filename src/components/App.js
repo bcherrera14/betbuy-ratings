@@ -3,15 +3,16 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ProductsGrid from './ProductsGrid';
 import '@fortawesome/fontawesome-free/css/all.css';
-import Jumbotron from './Jumbotron';
+import { Form, Col, Row, Jumbotron, Container, Button, Spinner } from 'react-bootstrap';
 
 import Navbar from './Navbar';
 
 class App extends React.Component {
-	state = { products: [] };
+	state = { products: [], loading: false };
 
 	componentDidMount() {
 		this.getNetgearRouters();
+		this.setState({ loading: true });
 	}
 
 	getNetgearRouters = () => {
@@ -27,11 +28,17 @@ class App extends React.Component {
 	};
 
 	render() {
+		const spinnerClass = this.state.loading ? 'spinner-border text-secondary' : 'hide';
 		return (
 			<div>
-				<Navbar />
-				<Jumbotron title="Best Buy Product Reviews" />
+				<Navbar setJumbotronTitle={this.setJumbotronTitle} />
 				<ProductsGrid products={this.state.products} />
+				<div className="d-flex flex-column justify-content-center align-items-center">
+					<div className={spinnerClass} role="status">
+						<span className="sr-only">Loading...</span>
+					</div>
+					<p className="mt-2">Loading...</p>
+				</div>
 			</div>
 		);
 	}
