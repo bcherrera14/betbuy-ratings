@@ -1,0 +1,29 @@
+div > .search-card {
+	width: 40rem;
+	margin: 0;
+}
+
+.search {
+	width: 325px;
+	position: relative;
+}
+
+button {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.search i {
+	position: absolute;
+	display: block;
+	top: 12px;
+	padding-left: 13px;
+	width: 45px;
+}
+
+#at-icon {
+	display: none;
+}
+
+#search-input {
+	padding-left: 40px;
+}

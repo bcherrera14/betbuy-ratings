@@ -32,7 +32,7 @@ class App extends React.Component {
 		//console.log(term);
 		axios
 			.get(
-				`https://api.bestbuy.com/v1/products(search=${term})?format=json&pageSize=10&apiKey=${process.env
+				`https://api.bestbuy.com/v1/products(search=${term})?format=json&pageSize=30&apiKey=${process.env
 					.REACT_APP_BETBUY_KEY}`
 			)
 			.then((response) => {

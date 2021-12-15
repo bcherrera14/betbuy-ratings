@@ -33,7 +33,8 @@ const ProductCard = ({ product }) => {
 				)}
 			</p>
 			<img className="mt-3" src={product.image} alt="..." />
-			<h5 className="m-3">{product.modelNumber.split('-')[0]}</h5>
+			{/* <h5 className="m-3">{product.modelNumber.split('-')[0]}</h5> */}
+			<h5 className="m-3 text-center">{product.name}</h5>
 			<div className="d-flex flex-column align-items-center justify-content-center">
 				<span>{stars}</span>
 				<p>{product.customerReviewAverage}</p>
