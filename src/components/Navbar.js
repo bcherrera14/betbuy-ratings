@@ -6,9 +6,9 @@ const Navbar = ({ setJumbotronTitle }) => {
 		<div>
 			<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
 				<div className="container-fluid">
-					<a className="navbar-brand" href="#">
+					<NavLink className="navbar-brand" to="/">
 						<strong>NETGEAR</strong>
-					</a>
+					</NavLink>
 					<button
 						className="navbar-toggler"
 						type="button"

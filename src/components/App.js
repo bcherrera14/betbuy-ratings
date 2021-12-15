@@ -29,15 +29,15 @@ class App extends React.Component {
 	};
 
 	onFormSubmit = (term) => {
-		console.log(term);
+		//console.log(term);
 		axios
 			.get(
 				`https://api.bestbuy.com/v1/products(search=${term})?format=json&pageSize=10&apiKey=${process.env
 					.REACT_APP_BETBUY_KEY}`
 			)
 			.then((response) => {
-				console.log(response.data.products);
-				//this.setState({ searchResults: response.data.products });
+				//console.log(response.data.products);
+				this.setState({ searchResults: response.data.products });
 			});
 	};
 
@@ -47,7 +47,12 @@ class App extends React.Component {
 				<Routes>
 					<Route path="/" element={<Navbar />}>
 						<Route index element={<ProductsGrid products={this.state.products} />} />
-						<Route path="/search" element={<ProductSearch onFormSubmit={this.onFormSubmit} />} />
+						<Route
+							path="/search"
+							element={
+								<ProductSearch onFormSubmit={this.onFormSubmit} results={this.state.searchResults} />
+							}
+						/>
 					</Route>
 				</Routes>
 			</div>

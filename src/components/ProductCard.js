@@ -32,7 +32,7 @@ const ProductCard = ({ product }) => {
 					''
 				)}
 			</p>
-			<img className="mt-3" src={product.image} />
+			<img className="mt-3" src={product.image} alt="..." />
 			<h5 className="m-3">{product.modelNumber.split('-')[0]}</h5>
 			<div className="d-flex flex-column align-items-center justify-content-center">
 				<span>{stars}</span>
@@ -41,7 +41,7 @@ const ProductCard = ({ product }) => {
 				<p>
 					{product.customerReviewCount} Customer Reviews
 					<a className="ms-2" href={product.url + '#tabbed-customerreviews'}>
-						<i class="fas fa-external-link-alt fa-sm" />
+						<i className="fas fa-external-link-alt fa-sm" />
 					</a>
 				</p>
 			</div>

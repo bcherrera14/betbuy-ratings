@@ -30,7 +30,8 @@ const ProductsGrid = ({ products }) => {
 		// console.log(product.startDate);
 		return <ProductCard product={product} key={product.sku} />;
 	});
-	const spinnerClass = products.length == 0 ? 'd-flex flex-column justify-content-center align-items-center' : 'hide';
+	const spinnerClass =
+		products.length === 0 ? 'd-flex flex-column justify-content-center align-items-center' : 'hide';
 
 	return (
 		<div>
