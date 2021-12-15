@@ -80,7 +80,10 @@ class ProductSearch extends React.Component {
 						</Row>
 					</Form>
 				</div>
-				<div className="container mt-4 d-flex flex-wrap">{renderedGrid}</div>
+				<div className="container mt-4 d-flex flex-wrap justify-content-around">
+					<hr />
+					{renderedGrid}
+				</div>
 			</div>
 		);
 	}

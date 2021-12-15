@@ -42,7 +42,7 @@ const ProductsGrid = ({ products }) => {
 				</div>
 				<p className="mt-2">Loading...</p>
 			</div>
-			<div className="container mt-4 d-flex flex-wrap">{renderedGrid}</div>;
+			<div className="container mt-4 d-flex flex-wrap justify-content-around">{renderedGrid}</div>;
 		</div>
 	);
 };

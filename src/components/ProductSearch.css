@@ -27,3 +27,12 @@ button {
 #search-input {
 	padding-left: 40px;
 }
+
+hr {
+	border: 0;
+	clear: both;
+	display: block;
+	width: 96%;
+	background-color: gray;
+	height: 1px;
+}
