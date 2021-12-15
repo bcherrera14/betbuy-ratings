@@ -33,9 +33,24 @@ class ProductSearch extends React.Component {
 	}
 
 	render() {
-		const renderedGrid = this.state.results.map((product) => {
+		function productFilter(product) {
+			if (product.customerReviewAverage == null) {
+				return false;
+			} else {
+				return true;
+			}
+		}
+
+		const filteredList = this.state.results.filter((product) => productFilter(product));
+
+		const sortedList = filteredList
+			.slice()
+			.sort((a, b) => parseFloat(a.customerReviewAverage) - parseFloat(b.customerReviewAverage));
+
+		const renderedGrid = sortedList.reverse().map((product) => {
 			return <ProductCard product={product} key={product.sku} />;
 		});
+
 		return (
 			<div className="d-flex flex-column justify-content-between align-items-center mx-4">
 				<div className="search-card card mt-4 p-3 d-flex justify-content-center align-items-center">
